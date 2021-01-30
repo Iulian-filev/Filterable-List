@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>My contants</title>
+</head>
+<body>
+   <div class="container">
+       <h1 class="center-align">
+        My contants
+       </h1>
+       <input type="text" id="filterInput" placeholder="Serch Names">
+       <ul id="names" class="collection with-heather">
+           <li class="collection-heather">
+               <h5>A</h5>
+            <li class="collection-item"></li>
+               <a href="#">Asen</a>
+           </li>
+                <li class="collection-item"></li>
+                <a href="#">Anna</a>
+            </li>
+                <li class="collection-item"></li>
+                <a href="#">Abi</a>
+            </li>
+                <li class="collection-item"></li>
+                <a href="#">Alex</a>
+            </li>
+            <li class="collection-heather">
+                <h5>B</h5>
+             <li class="collection-item"></li>
+                <a href="#">Boyana</a>
+            </li>
+                 <li class="collection-item"></li>
+                 <a href="https://www.facebook.com/profile.php?id=100002022414354">Brata</a>
+             </li>
+                 <li class="collection-item"></li>
+                 <a href="#">Bai Boqn Meksikaneca</a>
+             </li>
+                 <li class="collection-item"></li>
+                 <a href="#">Boncho</a>
+             </li>
+             <li class="collection-heather">
+                <h5>C</h5>
+             <li class="collection-item"></li>
+                <a href="#">Ceko</a>
+            </li>
+                 <li class="collection-item"></li>
+                 <a href="#">Canko</a>
+             </li>
+                 <li class="collection-item"></li>
+                 <a href="#">Ciga</a>
+             </li>
+                 <li class="collection-item"></li>
+                 <a href="#">Caracovo</a>
+             </li>
+       </ul>
+   </div>
+   <script>
+       //get input element
+       let filterInput= document.getElementById('filterInput');
+       //add event lisener
+       filterInput.addEventListener('keyup',fitlerNames);
+
+       function fitlerNames(){
+           //get value of input
+           let filterValue=document.getElementById('filterInput').value.toUpperCase();
+        
+           //get names il
+           let ul= document.getElementById('names');
+           //get il from ul
+           let li = ul.querySelectorAll('li.collection-item');
+
+           // loopp trough collection items
+           for (let i = 0; i < li.length; i++) {
+               let a = li[i].getElementsByTagName('a')[0];
+               // if maches
+              if (a.innerHTML.toUpperCase().indexOf(filterValue)>-1) 
+              {
+                li[i].style.display='';
+              } 
+              else{
+                 li[i].style.display='none';
+              }
+               
+           }
+       }
+   </script>
+    
+</body>
+</html>
